@@ -1,8 +1,14 @@
 const router = require('express').Router()
 const { Workout } = require('../models')
 
+router.get('/workouts/range', (req, res) => {
+  Workout.find({})
+    .then(workouts => res.json(workouts))
+    .catch(err => console.err)
+})
+
 router.get('/workouts', (req, res) => {
-  Workout.find()
+  Workout.find({})
     .then(workouts => res.json(workouts))
     .catch(err => console.err)
 })
