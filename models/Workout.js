@@ -7,12 +7,12 @@ module.exports = model('Workout', new Schema({
   },
   exercises: [
     {
-      type: String,
-      name: String,
-      duration: Number,
-      weights: Number,
-      reps: Number,
-      sets: Number
+      type: Schema.Types.ObjectId,
+      ref: 'Exercise'
     }
-  ]
+  ],
+  totalDuration: {
+    type: Number,
+    default: 0
+  }
 }))
