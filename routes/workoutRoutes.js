@@ -3,12 +3,20 @@ const { Workout, Exercise } = require('../models')
 
 router.get('/workouts/range', (req, res) => {
   Workout.find({})
+    .populate({
+      path: 'exercises',
+      model: 'Exercise'
+    })
     .then(workouts => res.json(workouts))
     .catch(err => console.log(err))
 })
 
 router.get('/workouts', (req, res) => {
   Workout.find({})
+    .populate({
+      path: 'exercises',
+      model: 'Exercise'
+    })
     .then(workouts => res.json(workouts))
     .catch(err => console.log(err))
 })
